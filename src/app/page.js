@@ -68,6 +68,59 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeCard, debouncedValues]);
 
+  const companies = [
+    {
+      name: "Amazon",
+      email: "contact@amazon.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+    },
+    {
+      name: "Google",
+      email: "contact@google.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    },
+    {
+      name: "Microsoft",
+      email: "contact@microsoft.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo_%282012%29.svg",
+    },
+    {
+      name: "Apple",
+      email: "contact@apple.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_%282016%29.svg",
+    },
+    {
+      name: "Facebook",
+      email: "contact@facebook.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+    },
+    {
+      name: "Twitter",
+      email: "contact@twitter.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_2012.svg",
+    },
+    {
+      name: "Netflix",
+      email: "contact@netflix.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/09/Netflix_2015_logo.svg",
+    },
+    {
+      name: "Spotify",
+      email: "contact@spotify.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/95/Spotify_logo_with_text.svg",
+    },
+    {
+      name: "Tesla",
+      email: "contact@tesla.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/61/Tesla_Logo.png",
+    },
+    {
+      name: "Adobe",
+      email: "contact@adobe.com",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/16/Adobe_Logo.svg",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-6 md:px-12 lg:px-24">
       <div className="mx-auto">
@@ -85,12 +138,12 @@ export default function Home() {
             Recently Used
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((id) => (
+            {companies.map((id) => (
               <PasswordCard
-                key={id}
-                platform={`Platform ${id}`}
-                email={`email${id}@example.com`}
-                icon={`/icon${id}.png`}
+                key={id.name}
+                platform={id.name}
+                email={id.email}
+                icon={id.logo}
                 isActive={activeCard === id}
                 onClick={() => handleCardClick(id)}
               />
